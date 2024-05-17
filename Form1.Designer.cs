@@ -80,6 +80,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(153, 20);
             this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.Text = "gero";
             // 
             // txtContrasena
             // 
@@ -87,6 +88,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(153, 20);
             this.txtContrasena.TabIndex = 5;
+            this.txtContrasena.Text = "Gero2002";
             // 
             // Form1
             // 

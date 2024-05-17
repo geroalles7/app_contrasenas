@@ -32,12 +32,14 @@ namespace app_contraseñas
                 MessageBox.Show("Usuario ingresado con exito");
                 VentanaContraseñas vc = new VentanaContraseñas();
                 vc.ShowDialog();
+               
 
             }
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos");
             }
+           
         }
     }
 }
