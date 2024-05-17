@@ -36,7 +36,7 @@ namespace app_contraseñas
                                 Aplicacion = reader["app"].ToString(),
                                 Nombre_usuario = reader["usuario"].ToString(),
                                 Contraseña = reader["contraseña"].ToString(),
-                                Fecha = Convert.ToDateTime(reader["updated_at"])
+                                Fecha = Convert.ToDateTime(reader["fechacreacion"])
                             };
                             contrasenas.Add(contrasena);
                         }
@@ -66,8 +66,10 @@ namespace app_contraseñas
                     comando.Parameters.AddWithValue("@fechacreacion", fechaCreacion);
 
                     comando.ExecuteNonQuery();
+                    MessageBox.Show("Contraseña creada con exito");
                 }
             }
+            
         }
 
         public void ActualizarContrasena(int id, string app, string usuario, string contraseña)
@@ -86,6 +88,7 @@ namespace app_contraseñas
 
 
                     comando.ExecuteNonQuery();
+                    MessageBox.Show("Contraseña actualizada con exito");
                 }
             }
         }
@@ -102,6 +105,7 @@ namespace app_contraseñas
                     comando.Parameters.AddWithValue("@id", id);
 
                     comando.ExecuteNonQuery();
+                    MessageBox.Show("Contraseña eliminada con exito");
                 }
             }
         }

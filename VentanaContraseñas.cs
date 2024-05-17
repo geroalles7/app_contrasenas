@@ -13,16 +13,13 @@ namespace app_contraseñas
 {
     public partial class VentanaContraseñas : Form
     {
-        private Administrador dbHelper = new Administrador();
+        private Administrador ad = new Administrador(); 
         private DataTable dataTable;
-       
 
         public VentanaContraseñas()
         {
             InitializeComponent();
-            
         }
-        Administrador ad= new Administrador();
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
@@ -31,60 +28,61 @@ namespace app_contraseñas
             {
                 
                 ad.CrearContrasena(ventanaCrear.txtApp.Text, ventanaCrear.txtUsuario.Text, ventanaCrear.txtContraseña.Text, DateTime.Now);
-                dataGridView1.Rows.Add(ad.getTamañoLista(),ventanaCrear.txtApp.Text, ventanaCrear.txtUsuario.Text, ventanaCrear.txtContraseña.Text, DateTime.Now);
-            }
-        }
-       
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+                
+                ActualizarDataTable();
+
+                
+                dataGridView1.ClearSelection();
+            }
         }
 
         private void txtEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                // Verificar si hay una fila seleccionada
+                
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    // Obtener el índice de la fila seleccionada
+                    
                     int index = dataGridView1.SelectedRows[0].Index;
+                    
+                    int id = (int)dataGridView1.Rows[index].Cells["id"].Value;
 
+                    
+                    ad.EliminarContrasena(id);
 
-                    // Eliminar la fila correspondiente de la lista en el Administrador
-                    ad.EliminarContrasena(index);
+                    ActualizarDataTable();
 
-                    // Eliminar la fila del DataGridView
-                    dataGridView1.Rows.RemoveAt(index);
-
+                    
+                    dataGridView1.ClearSelection();
                 }
                 else
                 {
                     MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Mensaje");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            // Verificar si hay una fila seleccionada
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Obtener el índice de la fila seleccionada
                 int index = dataGridView1.SelectedRows[0].Index;
+               
+                int id = (int)dataGridView1.Rows[index].Cells["id"].Value;
 
-                // Obtener los datos actuales de la fila seleccionada
+                
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
-                string app = filaSeleccionada.Cells[1].Value.ToString(); // Asumiendo que App está en la primera columna (0)
-                string usuario = filaSeleccionada.Cells[2].Value.ToString(); // Asumiendo que Usuario está en la segunda columna (1)
-                string contraseña = filaSeleccionada.Cells[3].Value.ToString(); // Asumiendo que Contraseña está en la tercera columna (2)
+                string app = filaSeleccionada.Cells["app"].Value.ToString();
+                string usuario = filaSeleccionada.Cells["usuario"].Value.ToString();
+                string contraseña = filaSeleccionada.Cells["contraseña"].Value.ToString();
 
-                // Crear y mostrar el formulario de edición
+                
                 VentanaEditar ventanaEditar = new VentanaEditar();
                 ventanaEditar.txtApp.Text = app;
                 ventanaEditar.txtUsuario.Text = usuario;
@@ -92,19 +90,13 @@ namespace app_contraseñas
 
                 if (ventanaEditar.ShowDialog() == DialogResult.OK)
                 {
-                    // Actualizar la lista en el objeto Administrador
-                    ad.ActualizarContrasena(index, ventanaEditar.txtApp.Text, ventanaEditar.txtUsuario.Text, ventanaEditar.txtContraseña.Text);
+                    
+                    ad.ActualizarContrasena(id, ventanaEditar.txtApp.Text, ventanaEditar.txtUsuario.Text, ventanaEditar.txtContraseña.Text);
 
-                    // Actualizar los datos en la fila seleccionada
-                    dataGridView1.Rows[index].Cells[0].Value = ventanaEditar.txtApp.Text;
-                    dataGridView1.Rows[index].Cells[1].Value = ventanaEditar.txtUsuario.Text;
-                    dataGridView1.Rows[index].Cells[2].Value = ventanaEditar.txtContraseña.Text;
-                    dataGridView1.Rows[index].Cells[3].Value = DateTime.Now.ToString(); // Actualizar la fecha
+                    
+                    ActualizarDataTable();
 
-                    // No es necesario volver a enlazar la lista al DataGridView
-                    // No establecer dataGridView1.DataSource = ad.GetMiLista();
-
-                    // Opcional: Limpiar la selección
+                    
                     dataGridView1.ClearSelection();
                 }
             }
@@ -113,12 +105,25 @@ namespace app_contraseñas
                 MessageBox.Show("Por favor, seleccione una fila para modificar.", "Mensaje");
             }
         }
-
+       
         private void VentanaContraseñas_Load_1(object sender, EventArgs e)
         {
-            dataTable = dbHelper.GetPasswords();
+            
+            ActualizarDataTable();
+        }
+
+        private void ActualizarDataTable()
+        {
+            dataTable = ad.GetPasswords();
+
+            
+            dataGridView1.Columns.Clear();
+
+            
             dataGridView1.DataSource = dataTable;
 
+           
         }
+
     }
 }
