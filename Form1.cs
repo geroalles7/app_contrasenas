@@ -34,11 +34,14 @@ namespace app_contraseñas
                 vc.ShowDialog();
                
 
+                this.Close();
+
             }
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos");
             }
+           
            
         }
     }
