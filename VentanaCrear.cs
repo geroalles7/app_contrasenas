@@ -17,6 +17,20 @@ namespace app_contraseñas
             InitializeComponent();
         }
 
+        public string App
+        {
+            get { return txtApp.Text; }
+        }
+
+        public string Usuario
+        {
+            get { return txtUsuario.Text; }
+        }
+
+        public string Contraseña
+        {
+            get { return txtContraseña.Text; }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 

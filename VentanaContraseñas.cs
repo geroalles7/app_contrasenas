@@ -15,24 +15,26 @@ namespace app_contraseñas
     {
         private Administrador ad = new Administrador(); 
         private DataTable dataTable;
-
-        public VentanaContraseñas()
+        private int usuario_id;
+        public VentanaContraseñas(int usuario_id)
         {
             InitializeComponent();
+            this.usuario_id = usuario_id;
+            this.FormClosed += new FormClosedEventHandler(VentanaContraseñas_FormClosed);
         }
-        
+        private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         private void btnCrear_Click(object sender, EventArgs e)
         {
             VentanaCrear ventanaCrear = new VentanaCrear();
             if (ventanaCrear.ShowDialog() == DialogResult.OK)
             {
-                
-                ad.CrearContrasena(ventanaCrear.txtApp.Text, ventanaCrear.txtUsuario.Text, ventanaCrear.txtContraseña.Text, DateTime.Now);
+                ad.CrearContrasena(ventanaCrear.App, ventanaCrear.Usuario, ventanaCrear.Contraseña, DateTime.Now, this.usuario_id);
 
-                
                 ActualizarDataTable();
 
-                
                 dataGridView1.ClearSelection();
             }
         }
@@ -121,7 +123,7 @@ namespace app_contraseñas
 
         private void ActualizarDataTable()
         {
-            dataTable = ad.GetPasswords();
+            dataTable = ad.GetPasswords(this.usuario_id);
 
             
             dataGridView1.Columns.Clear();

@@ -21,40 +21,33 @@ namespace app_contraseñas
         {
 
         }
-
+        Administrador ad = new Administrador();
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            string nombre = txtUsuario.Text;
+            string nombreUsuario = txtUsuario.Text;
             string contraseña = txtContrasena.Text;
 
-            // Obtener todos los usuarios de la base de datos
+            
             List<Usuario> usuarios = ad.GetUsuarios();
 
-            // Verificar si existe algún usuario con las credenciales ingresadas
-            bool usuarioValido = false;
-            foreach (Usuario usuario in usuarios)
-            {
-                if (usuario.Nombre == nombre && usuario.Contraseña == contraseña)
-                {
-                    usuarioValido = true;
-                    break;
-                }
-            }
+            Usuario usuario = usuarios.FirstOrDefault(u => u.Nombre == nombreUsuario &&  u.Contraseña == contraseña);
 
-            if (usuarioValido)
+            if (usuario != null)
             {
-                MessageBox.Show("Usuario ingresado con éxito");
-                VentanaContraseñas vc = new VentanaContraseñas();
-                vc.ShowDialog();
-                this.Close();
+                int usuario_id = usuario.Id;
+                VentanaContraseñas ventanaContraseñas = new VentanaContraseñas(usuario_id);
+                MessageBox.Show("Usuario ingresado con exito !");
+                ventanaContraseñas.Show();
+                this.Hide();
+                
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos");
+                MessageBox.Show("Usuario o contraseña incorrectos.");
             }
         }
 
-        Administrador ad =new Administrador();   
+       
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CrearUsuario cu=new CrearUsuario(); 

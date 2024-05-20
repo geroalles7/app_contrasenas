@@ -113,29 +113,27 @@ namespace app_contraseñas
         {
             return BCrypt.Net.BCrypt.HashPassword(contraseña);
         }
-        public void CrearContrasena(string app, string usuario, string contraseña, DateTime modificado)
+        public void CrearContrasena(string app, string usuario, string contraseña, DateTime modificado, int usuario_id)
         {
-
-            //string contraseñaEncriptada = EncriptarContraseña(contraseña);
             using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
             {
                 conexion.Open();
 
-                string consulta = "INSERT INTO contraseñas (app, usuario, contraseña, modificado, usuario_id) VALUES (@app, @usuario, @contraseña, @modificado)";
+                string consulta = "INSERT INTO contraseñas (app, usuario, contraseña, modificado, usuario_id) VALUES (@app, @usuario, @contraseña, @modificado, @usuario_id)";
                 using (NpgsqlCommand comando = new NpgsqlCommand(consulta, conexion))
                 {
                     comando.Parameters.AddWithValue("@app", app);
                     comando.Parameters.AddWithValue("@usuario", usuario);
                     comando.Parameters.AddWithValue("@contraseña", contraseña);
                     comando.Parameters.AddWithValue("@modificado", modificado);
-                  
+                    comando.Parameters.AddWithValue("@usuario_id", usuario_id);
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Contraseña creada con exito");
+                    MessageBox.Show("Contraseña creada con éxito");
                 }
             }
-            
         }
+
 
         public void ActualizarContrasena(int id, string app, string usuario, string contraseña, DateTime modificado)
         {
@@ -176,7 +174,7 @@ namespace app_contraseñas
             }
         }
 
-        public DataTable GetPasswords()
+        public DataTable GetPasswords(int usuario_id)
         {
             DataTable dataTable = new DataTable();
 
@@ -186,10 +184,10 @@ namespace app_contraseñas
                 {
                     connection.Open();
 
-                    string sql = "SELECT id,app, usuario, contraseña AS contraseña, modificado AS modificado FROM contraseñas";
-
+                    string sql = "SELECT id, app, usuario, contraseña AS contraseña, modificado AS modificado FROM contraseñas WHERE usuario_id = @usuario_id";
                     using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(sql, connection))
                     {
+                        adapter.SelectCommand.Parameters.AddWithValue("@usuario_id", usuario_id);
                         adapter.Fill(dataTable);
                     }
                 }
@@ -203,9 +201,10 @@ namespace app_contraseñas
         }
 
 
+
     }
-    
 
 
-    
+
+
 }
