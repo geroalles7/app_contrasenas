@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace app_contraseñas
 {
-    public partial class VentanaCrear : Form
+    public partial class CrearUsuario : Form
     {
-        public VentanaCrear()
+        public CrearUsuario()
         {
             InitializeComponent();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

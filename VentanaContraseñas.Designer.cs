@@ -41,13 +41,22 @@
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.inicioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(108, 248);
+            this.btnCrear.Location = new System.Drawing.Point(90, 308);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(126, 33);
             this.btnCrear.TabIndex = 1;
@@ -57,7 +66,7 @@
             // 
             // txtEliminar
             // 
-            this.txtEliminar.Location = new System.Drawing.Point(255, 248);
+            this.txtEliminar.Location = new System.Drawing.Point(440, 308);
             this.txtEliminar.Name = "txtEliminar";
             this.txtEliminar.Size = new System.Drawing.Size(126, 33);
             this.txtEliminar.TabIndex = 2;
@@ -85,7 +94,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(417, 248);
+            this.btnModificar.Location = new System.Drawing.Point(268, 308);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(126, 33);
             this.btnModificar.TabIndex = 4;
@@ -95,6 +104,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -102,58 +113,118 @@
             this.Usuario,
             this.Contraseña,
             this.Modificado});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(54, 54);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(588, 199);
+            this.dataGridView1.Size = new System.Drawing.Size(577, 199);
             this.dataGridView1.TabIndex = 0;
             // 
             // Id
             // 
-            this.Id.Frozen = true;
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             // 
             // Aplicacion
             // 
-            this.Aplicacion.Frozen = true;
             this.Aplicacion.HeaderText = "Aplicacion";
             this.Aplicacion.Name = "Aplicacion";
             // 
             // Usuario
             // 
-            this.Usuario.Frozen = true;
             this.Usuario.HeaderText = "Usuario";
             this.Usuario.Name = "Usuario";
             // 
             // Contraseña
             // 
-            this.Contraseña.Frozen = true;
             this.Contraseña.HeaderText = "Contraseña";
             this.Contraseña.Name = "Contraseña";
             // 
             // Modificado
             // 
             this.Modificado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Modificado.Frozen = true;
             this.Modificado.HeaderText = "Modificado";
             this.Modificado.Name = "Modificado";
             this.Modificado.Width = 84;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inicioToolStripMenuItem1,
+            this.exportarPDFToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(709, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // inicioToolStripMenuItem1
+            // 
+            this.inicioToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearUsuarioToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
+            this.inicioToolStripMenuItem1.Name = "inicioToolStripMenuItem1";
+            this.inicioToolStripMenuItem1.Size = new System.Drawing.Size(95, 20);
+            this.inicioToolStripMenuItem1.Text = "Configuracion";
+            // 
+            // exportarPDFToolStripMenuItem
+            // 
+            this.exportarPDFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pDFToolStripMenuItem,
+            this.cSVToolStripMenuItem});
+            this.exportarPDFToolStripMenuItem.Name = "exportarPDFToolStripMenuItem";
+            this.exportarPDFToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.exportarPDFToolStripMenuItem.Text = "Exportar";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // pDFToolStripMenuItem
+            // 
+            this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
+            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pDFToolStripMenuItem.Text = "PDF";
+            // 
+            // cSVToolStripMenuItem
+            // 
+            this.cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
+            this.cSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cSVToolStripMenuItem.Text = "CSV";
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Text = "Modificar Usuario";
+            // 
+            // crearUsuarioToolStripMenuItem
+            // 
+            this.crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            this.crearUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
             // 
             // VentanaContraseñas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 300);
+            this.ClientSize = new System.Drawing.Size(709, 397);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtEliminar);
             this.Controls.Add(this.btnCrear);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "VentanaContraseñas";
             this.Text = "VentanaContraseñas";
             this.Load += new System.EventHandler(this.VentanaContraseñas_Load_1);
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -170,5 +241,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contraseña;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modificado;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exportarPDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cSVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearUsuarioToolStripMenuItem;
     }
 }

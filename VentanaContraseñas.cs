@@ -42,25 +42,32 @@ namespace app_contraseñas
             try
             {
                 
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    
-                    int index = dataGridView1.SelectedRows[0].Index;
-                    
-                    int id = (int)dataGridView1.Rows[index].Cells["id"].Value;
+                
+                    if (dataGridView1.SelectedRows.Count > 0)
+                    {
+                        DialogResult resultado = MessageBox.Show("¿Estás seguro que desea eliminar esta contraseña?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (resultado == DialogResult.Yes)
+                        {
+                                int index = dataGridView1.SelectedRows[0].Index;
 
-                    
-                    ad.EliminarContrasena(id);
+                                int id = (int)dataGridView1.Rows[index].Cells["id"].Value;
 
-                    ActualizarDataTable();
 
-                    
-                    dataGridView1.ClearSelection();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Mensaje");
-                }
+                                ad.EliminarContrasena(id);
+
+                                ActualizarDataTable();
+
+
+                                dataGridView1.ClearSelection();
+                        }
+                           
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Mensaje");
+                    }
+                
+                
             }
             catch (Exception ex)
             {
@@ -91,7 +98,7 @@ namespace app_contraseñas
                 if (ventanaEditar.ShowDialog() == DialogResult.OK)
                 {
                     
-                    ad.ActualizarContrasena(id, ventanaEditar.txtApp.Text, ventanaEditar.txtUsuario.Text, ventanaEditar.txtContraseña.Text);
+                    ad.ActualizarContrasena(id, ventanaEditar.txtApp.Text, ventanaEditar.txtUsuario.Text, ventanaEditar.txtContraseña.Text, DateTime.Now);
 
                     
                     ActualizarDataTable();
@@ -133,6 +140,11 @@ namespace app_contraseñas
         private void button1_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void exportarCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
