@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using BCrypt.Net;
+
 
 
 
@@ -17,6 +19,8 @@ namespace app_contraseñas
     {
         private string cadenaConexion = "Host=localhost;Username=postgres;Password=Gero2002;Database=contraseñas";
         List<Contrasena> contrasenas = new List<Contrasena>();
+
+        
         public List<Contrasena> GetMiLista()
         {
             using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
@@ -51,8 +55,14 @@ namespace app_contraseñas
         {
             return contrasenas.Count();
         }
+        public string EncriptarContraseña(string contraseña)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(contraseña);
+        }
         public void CrearContrasena(string app, string usuario, string contraseña, DateTime fechaCreacion)
         {
+
+            //string contraseñaEncriptada = EncriptarContraseña(contraseña);
             using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
             {
                 conexion.Open();

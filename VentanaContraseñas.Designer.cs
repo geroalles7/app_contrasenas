@@ -36,11 +36,11 @@
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Modificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aplicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aplicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -107,25 +107,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(588, 199);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Modificado
+            // Id
             // 
-            this.Modificado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Modificado.Frozen = true;
-            this.Modificado.HeaderText = "Modificado";
-            this.Modificado.Name = "Modificado";
-            this.Modificado.Width = 84;
-            // 
-            // Contraseña
-            // 
-            this.Contraseña.Frozen = true;
-            this.Contraseña.HeaderText = "Contraseña";
-            this.Contraseña.Name = "Contraseña";
-            // 
-            // Usuario
-            // 
-            this.Usuario.Frozen = true;
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
             // 
             // Aplicacion
             // 
@@ -133,11 +119,25 @@
             this.Aplicacion.HeaderText = "Aplicacion";
             this.Aplicacion.Name = "Aplicacion";
             // 
-            // Id
+            // Usuario
             // 
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
+            this.Usuario.Frozen = true;
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.Frozen = true;
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.Name = "Contraseña";
+            // 
+            // Modificado
+            // 
+            this.Modificado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Modificado.Frozen = true;
+            this.Modificado.HeaderText = "Modificado";
+            this.Modificado.Name = "Modificado";
+            this.Modificado.Width = 84;
             // 
             // VentanaContraseñas
             // 

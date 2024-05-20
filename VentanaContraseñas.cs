@@ -20,7 +20,7 @@ namespace app_contraseñas
         {
             InitializeComponent();
         }
-
+        
         private void btnCrear_Click(object sender, EventArgs e)
         {
             VentanaCrear ventanaCrear = new VentanaCrear();
@@ -125,5 +125,14 @@ namespace app_contraseñas
            
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
