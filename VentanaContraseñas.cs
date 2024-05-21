@@ -22,6 +22,9 @@ namespace app_contraseñas
             InitializeComponent();
             this.usuario_id = usuario_id;
             this.FormClosed += new FormClosedEventHandler(VentanaContraseñas_FormClosed);
+            
+            dataGridView1.ReadOnly = true;
+           
         }
         private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -179,5 +182,8 @@ namespace app_contraseñas
                 ad.ActualizarUsuario(this.usuario_id, nombre, contraseña);
             }
         }
+       
+        
+        
     }
 }
