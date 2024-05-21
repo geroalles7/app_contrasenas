@@ -15,6 +15,12 @@ namespace app_contraseñas
         public ModificarUsuario()
         {
             InitializeComponent();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

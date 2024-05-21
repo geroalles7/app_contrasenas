@@ -36,6 +36,12 @@
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -156,6 +162,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VentanaContraseñas.resx">
       <DependentUpon>VentanaContraseñas.cs</DependentUpon>
@@ -179,6 +186,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_71b60bd1-d9ea-4fad-b71f-098bf5354cc4.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_71b60bd1-d9ea-4fad-b71f-098bf5354cc41.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %284%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
