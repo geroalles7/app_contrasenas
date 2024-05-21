@@ -168,5 +168,16 @@ namespace app_contraseñas
                 this.Close();
             }
         }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarUsuario mu = new ModificarUsuario();
+            if (mu.ShowDialog() == DialogResult.OK)
+            {
+                string nombre = mu.textBox1.Text;
+                string contraseña = mu.textBox2.Text;
+                ad.ActualizarUsuario(this.usuario_id, nombre, contraseña);
+            }
+        }
     }
 }

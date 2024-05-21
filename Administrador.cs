@@ -157,6 +157,27 @@ namespace app_contraseñas
             }
         }
 
+        public void ActualizarUsuario(int id,string nombre, string contraseña)
+        {
+            using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+
+                string consulta = "UPDATE usuarios SET nombre = @nombre,contraseña = @contraseña WHERE id = @id";
+                using (NpgsqlCommand comando = new NpgsqlCommand(consulta, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@nombre", nombre);
+                    comando.Parameters.AddWithValue("@contraseña", contraseña);
+                    
+
+
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Usuario actualizado con exito");
+                }
+            }
+        }
+
         public void EliminarContrasena(int id)
         {
             using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
