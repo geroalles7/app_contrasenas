@@ -83,6 +83,16 @@ namespace app_contraseñas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _b1170834_4a29_4d2e_82f5_c38e0e94b927 {
+            get {
+                object obj = ResourceManager.GetObject("_b1170834-4a29-4d2e-82f5-c38e0e94b927", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file {
             get {
                 object obj = ResourceManager.GetObject("file", resourceCulture);
@@ -146,6 +156,26 @@ namespace app_contraseñas.Properties {
         internal static System.Drawing.Bitmap file__6_ {
             get {
                 object obj = ResourceManager.GetObject("file (6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap file__7_ {
+            get {
+                object obj = ResourceManager.GetObject("file (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap file__8_ {
+            get {
+                object obj = ResourceManager.GetObject("file (8)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
