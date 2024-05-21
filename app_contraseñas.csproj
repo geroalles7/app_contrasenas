@@ -154,16 +154,6 @@
     <EmbeddedResource Include="ModificarUsuario.resx">
       <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="VentanaContraseñas.resx">
       <DependentUpon>VentanaContraseñas.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,42 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_71b60bd1-d9ea-4fad-b71f-098bf5354cc4.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %281%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_71b60bd1-d9ea-4fad-b71f-098bf5354cc41.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %282%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %283%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %284%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %285%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %286%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %287%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_b1170834-4a29-4d2e-82f5-c38e0e94b927.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file %288%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
