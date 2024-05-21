@@ -28,14 +28,22 @@ namespace app_contraseñas
 
             dataGridView1.ReadOnly = true;
 
+            //exportar PDF
             this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pDFToolStripMenuItem.Text = "Exportar a PDF";
             this.pDFToolStripMenuItem.Click += new System.EventHandler(this.pDFToolStripMenuItem_Click);
 
-
+            //exportar CSV
             this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cSVToolStripMenuItem.Text = "Exportar a CSV";
             this.cSVToolStripMenuItem.Click += new System.EventHandler(this.cSVToolStripMenuItem_Click);
+
+            //dejar ventana fija
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true; 
+            this.SizeGripStyle = SizeGripStyle.Hide;
+
 
         }
         private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
@@ -88,7 +96,8 @@ namespace app_contraseñas
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Mensaje");
+                    
+                    MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
 
@@ -133,7 +142,9 @@ namespace app_contraseñas
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione una fila para modificar.", "Mensaje");
+                
+                MessageBox.Show("Por favor, seleccione una fila para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
         }
 
@@ -249,13 +260,15 @@ namespace app_contraseñas
 
                         // Añadir la tabla al documento PDF
                         pdfDoc.Add(pdfTable);
-                        MessageBox.Show("Archivo creado con exito !");
+                        
+                        MessageBox.Show("Archivo creado con exito !", "Archivo creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                       
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     finally
                     {

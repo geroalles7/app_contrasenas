@@ -16,6 +16,11 @@ namespace app_contraseñas
         {
             InitializeComponent();
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true; // Si deseas permitir minimizar, de lo contrario, configúralo como false
+            this.SizeGripStyle = SizeGripStyle.Hide;
+
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -40,14 +45,14 @@ namespace app_contraseñas
             {
                 int usuario_id = usuario.Id;
                 VentanaContraseñas ventanaContraseñas = new VentanaContraseñas(usuario_id);
-                MessageBox.Show("Usuario ingresado con exito !");
+                MessageBox.Show("Usuario ingresado con exito !", "Usuario ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ventanaContraseñas.Show();
                 this.Hide();
                 
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos.");
+                MessageBox.Show("Usuario o contraseña incorrectos !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
