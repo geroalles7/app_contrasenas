@@ -162,6 +162,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VentanaContraseñas.resx">
       <DependentUpon>VentanaContraseñas.cs</DependentUpon>
@@ -185,6 +186,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_71b60bd1-d9ea-4fad-b71f-098bf5354cc4.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_71b60bd1-d9ea-4fad-b71f-098bf5354cc41.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file %284%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

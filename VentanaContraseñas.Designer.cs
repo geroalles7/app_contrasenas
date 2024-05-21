@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaContraseñas));
             this.btnCrear = new System.Windows.Forms.Button();
             this.txtEliminar = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -55,6 +56,7 @@
             // 
             // btnCrear
             // 
+            this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrear.Location = new System.Drawing.Point(90, 308);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(126, 33);
@@ -65,6 +67,7 @@
             // 
             // txtEliminar
             // 
+            this.txtEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminar.Location = new System.Drawing.Point(440, 308);
             this.txtEliminar.Name = "txtEliminar";
             this.txtEliminar.Size = new System.Drawing.Size(126, 33);
@@ -93,6 +96,7 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(268, 308);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(126, 33);
@@ -122,27 +126,32 @@
             // 
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Aplicacion
             // 
             this.Aplicacion.HeaderText = "Aplicacion";
             this.Aplicacion.Name = "Aplicacion";
+            this.Aplicacion.ReadOnly = true;
             // 
             // Usuario
             // 
             this.Usuario.HeaderText = "Usuario";
             this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
             // 
             // Contraseña
             // 
             this.Contraseña.HeaderText = "Contraseña";
             this.Contraseña.Name = "Contraseña";
+            this.Contraseña.ReadOnly = true;
             // 
             // Modificado
             // 
             this.Modificado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Modificado.HeaderText = "Modificado";
             this.Modificado.Name = "Modificado";
+            this.Modificado.ReadOnly = true;
             this.Modificado.Width = 84;
             // 
             // menuStrip1
@@ -153,7 +162,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(709, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,14 +170,15 @@
             // 
             this.inicioToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem});
+            this.inicioToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inicioToolStripMenuItem1.Name = "inicioToolStripMenuItem1";
-            this.inicioToolStripMenuItem1.Size = new System.Drawing.Size(95, 20);
+            this.inicioToolStripMenuItem1.Size = new System.Drawing.Size(96, 20);
             this.inicioToolStripMenuItem1.Text = "Configuracion";
             // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.usuarioToolStripMenuItem.Text = "Modificar Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
@@ -177,28 +187,30 @@
             this.exportarPDFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pDFToolStripMenuItem,
             this.cSVToolStripMenuItem});
+            this.exportarPDFToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportarPDFToolStripMenuItem.Name = "exportarPDFToolStripMenuItem";
-            this.exportarPDFToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.exportarPDFToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.exportarPDFToolStripMenuItem.Text = "Exportar";
             // 
             // pDFToolStripMenuItem
             // 
             this.pDFToolStripMenuItem.Name = "pDFToolStripMenuItem";
-            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pDFToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.pDFToolStripMenuItem.Text = "PDF";
             this.pDFToolStripMenuItem.Click += new System.EventHandler(this.pDFToolStripMenuItem_Click);
             // 
             // cSVToolStripMenuItem
             // 
             this.cSVToolStripMenuItem.Name = "cSVToolStripMenuItem";
-            this.cSVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cSVToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.cSVToolStripMenuItem.Text = "CSV";
             this.cSVToolStripMenuItem.Click += new System.EventHandler(this.cSVToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
+            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -206,15 +218,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 397);
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::app_contraseñas.Properties.Resources.file__2_;
+            this.ClientSize = new System.Drawing.Size(734, 401);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtEliminar);
             this.Controls.Add(this.btnCrear);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VentanaContraseñas";
-            this.Text = "VentanaContraseñas";
+            this.Text = "Secure Info";
             this.Load += new System.EventHandler(this.VentanaContraseñas_Load_1);
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
