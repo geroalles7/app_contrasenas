@@ -175,8 +175,13 @@ namespace app_contraseñas
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ModificarUsuario mu = new ModificarUsuario();
+            Usuario usuario = ad.GetUsuario(this.usuario_id);
+            mu.textBox1.Text = usuario.Nombre;
+            mu.textBox2.Text = usuario.Contraseña;
+            
             if (mu.ShowDialog() == DialogResult.OK)
             {
+
                 string nombre = mu.textBox1.Text;
                 string contraseña = mu.textBox2.Text;
                 ad.ActualizarUsuario(this.usuario_id, nombre, contraseña);

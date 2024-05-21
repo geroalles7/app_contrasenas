@@ -20,7 +20,7 @@ namespace app_contraseñas
     {
         private string cadenaConexion = "Host=localhost;Username=postgres;Password=Gero2002;Database=contraseñas";
         List<Contrasena> contrasenas = new List<Contrasena>();
-        List<Usuario>usuarios=new List<Usuario>();
+        
 
         
         public List<Contrasena> GetMiLista()
@@ -236,10 +236,36 @@ namespace app_contraseñas
 
             return contraseña.ToString();
         }
+        public Usuario GetUsuario(int usuario_id)
+        {
+            Usuario usuario = new Usuario();
+            using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+
+                string consulta = "SELECT nombre, contraseña FROM usuarios WHERE id = @id";
+                using (NpgsqlCommand comando = new NpgsqlCommand(consulta, conexion))
+                {
+                    comando.Parameters.AddWithValue("@id", usuario_id);
+                    using (NpgsqlDataReader reader = comando.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario.Id = usuario_id;
+                            usuario.Nombre = reader.GetString(0);
+                            usuario.Contraseña = reader.GetString(1);
+                        }
+                    }
+                }
+            }
+            return usuario;
+        }
 
 
     }
-    
+
+
+
 
 
 
