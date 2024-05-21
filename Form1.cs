@@ -15,8 +15,12 @@ namespace app_contraseñas
         public Form1()
         {
             InitializeComponent();
+            this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
         }
-
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 

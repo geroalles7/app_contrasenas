@@ -16,6 +16,7 @@ namespace app_contraseñas
         private Administrador ad = new Administrador(); 
         private DataTable dataTable;
         private int usuario_id;
+        private bool regresarAForm1 = false;
         public VentanaContraseñas(int usuario_id)
         {
             InitializeComponent();
@@ -24,8 +25,14 @@ namespace app_contraseñas
         }
         private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (!regresarAForm1)
+            {
+                Application.Exit();
+            }
+
         }
+
+       
         private void btnCrear_Click(object sender, EventArgs e)
         {
             VentanaCrear ventanaCrear = new VentanaCrear();
@@ -147,6 +154,19 @@ namespace app_contraseñas
         private void exportarCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("¿Estás seguro que deseas volver al menú?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                regresarAForm1 = true;
+                Form1 form1 = new Form1();
+                form1.Show();
+                this.Close();
+            }
         }
     }
 }
