@@ -60,7 +60,7 @@
             this.btnCrear.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrear.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCrear.Location = new System.Drawing.Point(76, 336);
+            this.btnCrear.Location = new System.Drawing.Point(87, 336);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(126, 33);
             this.btnCrear.TabIndex = 1;
@@ -73,7 +73,7 @@
             this.txtEliminar.BackColor = System.Drawing.SystemColors.WindowText;
             this.txtEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEliminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtEliminar.Location = new System.Drawing.Point(527, 336);
+            this.txtEliminar.Location = new System.Drawing.Point(538, 336);
             this.txtEliminar.Name = "txtEliminar";
             this.txtEliminar.Size = new System.Drawing.Size(126, 33);
             this.txtEliminar.TabIndex = 2;
@@ -104,7 +104,7 @@
             this.btnModificar.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnModificar.Location = new System.Drawing.Point(307, 336);
+            this.btnModificar.Location = new System.Drawing.Point(320, 336);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(126, 33);
             this.btnModificar.TabIndex = 4;
@@ -123,7 +123,7 @@
             this.Usuario,
             this.Contraseña,
             this.Modificado});
-            this.dataGridView1.Location = new System.Drawing.Point(76, 90);
+            this.dataGridView1.Location = new System.Drawing.Point(87, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(577, 199);
