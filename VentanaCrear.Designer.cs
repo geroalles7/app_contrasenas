@@ -97,10 +97,10 @@
             // btnGuardar
             // 
             this.btnGuardar.AutoSize = true;
-            this.btnGuardar.BackColor = System.Drawing.Color.Lime;
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(54, 270);
+            this.btnGuardar.Location = new System.Drawing.Point(426, 36);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(121, 34);
             this.btnGuardar.TabIndex = 6;
@@ -111,24 +111,23 @@
             // btnCancelar
             // 
             this.btnCancelar.AutoSize = true;
-            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.Window;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(293, 270);
+            this.btnCancelar.Location = new System.Drawing.Point(426, 155);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(103, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(124, 34);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(133, 221);
+            this.button1.Location = new System.Drawing.Point(426, 82);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 30);
+            this.button1.Size = new System.Drawing.Size(124, 50);
             this.button1.TabIndex = 8;
             this.button1.Text = "Generar Contraseña";
             this.button1.UseVisualStyleBackColor = false;
@@ -139,7 +138,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::app_contraseñas.Properties.Resources.file__4_;
-            this.ClientSize = new System.Drawing.Size(450, 311);
+            this.ClientSize = new System.Drawing.Size(582, 232);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);

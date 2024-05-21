@@ -101,7 +101,7 @@ namespace app_contraseñas
                     
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Usuario creado con exito");
+                    MessageBox.Show("Usuario creado con exito", "Creado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -129,7 +129,7 @@ namespace app_contraseñas
                     comando.Parameters.AddWithValue("@usuario_id", usuario_id);
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Contraseña creada con éxito");
+                    MessageBox.Show("Contraseña creada con exito", "Contraseña creada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace app_contraseñas
 
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Contraseña actualizada con exito");
+                    MessageBox.Show("Contraseña actualizada con exito", "Contraseña actualizada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace app_contraseñas
 
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Usuario actualizado con exito");
+                    MessageBox.Show("Usuario actualizado con exito", "Usuario actualizado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -190,7 +190,7 @@ namespace app_contraseñas
                     comando.Parameters.AddWithValue("@id", id);
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Contraseña eliminada con exito");
+                    MessageBox.Show("Contraseña eliminada con exito !", "Contraseña eliminada", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -214,7 +214,8 @@ namespace app_contraseñas
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al conectar con la base de datos: {ex.Message}");
+                   
+                    MessageBox.Show($"Error al conectar con la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 

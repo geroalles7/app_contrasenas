@@ -15,6 +15,16 @@ namespace app_contraseñas
         public CrearUsuario()
         {
             InitializeComponent();
+            //dejar ventana fija
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
+            this.SizeGripStyle = SizeGripStyle.Hide;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

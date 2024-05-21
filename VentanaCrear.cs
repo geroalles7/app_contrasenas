@@ -15,6 +15,11 @@ namespace app_contraseñas
         public VentanaCrear()
         {
             InitializeComponent();
+            //dejar ventana fija
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
+            this.SizeGripStyle = SizeGripStyle.Hide;
         }
 
         public string App

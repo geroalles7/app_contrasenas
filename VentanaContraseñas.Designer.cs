@@ -49,6 +49,7 @@
             this.pDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -57,7 +58,7 @@
             // btnCrear
             // 
             this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Location = new System.Drawing.Point(90, 308);
+            this.btnCrear.Location = new System.Drawing.Point(76, 336);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(126, 33);
             this.btnCrear.TabIndex = 1;
@@ -68,7 +69,7 @@
             // txtEliminar
             // 
             this.txtEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEliminar.Location = new System.Drawing.Point(440, 308);
+            this.txtEliminar.Location = new System.Drawing.Point(527, 336);
             this.txtEliminar.Name = "txtEliminar";
             this.txtEliminar.Size = new System.Drawing.Size(126, 33);
             this.txtEliminar.TabIndex = 2;
@@ -97,7 +98,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(268, 308);
+            this.btnModificar.Location = new System.Drawing.Point(307, 336);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(126, 33);
             this.btnModificar.TabIndex = 4;
@@ -116,7 +117,7 @@
             this.Usuario,
             this.Contraseña,
             this.Modificado});
-            this.dataGridView1.Location = new System.Drawing.Point(54, 54);
+            this.dataGridView1.Location = new System.Drawing.Point(76, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(577, 199);
@@ -214,6 +215,17 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
+            this.label1.Location = new System.Drawing.Point(251, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(210, 37);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Contraseñas";
+            // 
             // VentanaContraseñas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +233,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::app_contraseñas.Properties.Resources.file__2_;
             this.ClientSize = new System.Drawing.Size(734, 401);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnModificar);
@@ -260,5 +273,6 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cSVToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
