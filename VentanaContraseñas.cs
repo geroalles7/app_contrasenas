@@ -15,24 +15,36 @@ namespace app_contraseñas
     {
         private Administrador ad = new Administrador(); 
         private DataTable dataTable;
-
-        public VentanaContraseñas()
+        private int usuario_id;
+        private bool regresarAForm1 = false;
+        public VentanaContraseñas(int usuario_id)
         {
             InitializeComponent();
+            this.usuario_id = usuario_id;
+            this.FormClosed += new FormClosedEventHandler(VentanaContraseñas_FormClosed);
+            
+            dataGridView1.ReadOnly = true;
+           
         }
-        
+        private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!regresarAForm1)
+            {
+                Application.Exit();
+            }
+
+        }
+
+       
         private void btnCrear_Click(object sender, EventArgs e)
         {
             VentanaCrear ventanaCrear = new VentanaCrear();
             if (ventanaCrear.ShowDialog() == DialogResult.OK)
             {
-                
-                ad.CrearContrasena(ventanaCrear.txtApp.Text, ventanaCrear.txtUsuario.Text, ventanaCrear.txtContraseña.Text, DateTime.Now);
+                ad.CrearContrasena(ventanaCrear.App, ventanaCrear.Usuario, ventanaCrear.Contraseña, DateTime.Now, this.usuario_id);
 
-                
                 ActualizarDataTable();
 
-                
                 dataGridView1.ClearSelection();
             }
         }
@@ -42,25 +54,32 @@ namespace app_contraseñas
             try
             {
                 
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    
-                    int index = dataGridView1.SelectedRows[0].Index;
-                    
-                    int id = (int)dataGridView1.Rows[index].Cells["id"].Value;
+                
+                    if (dataGridView1.SelectedRows.Count > 0)
+                    {
+                        DialogResult resultado = MessageBox.Show("¿Estás seguro que desea eliminar esta contraseña?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (resultado == DialogResult.Yes)
+                        {
+                                int index = dataGridView1.SelectedRows[0].Index;
 
-                    
-                    ad.EliminarContrasena(id);
+                                int id = (int)dataGridView1.Rows[index].Cells["id"].Value;
 
-                    ActualizarDataTable();
 
-                    
-                    dataGridView1.ClearSelection();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Mensaje");
-                }
+                                ad.EliminarContrasena(id);
+
+                                ActualizarDataTable();
+
+
+                                dataGridView1.ClearSelection();
+                        }
+                           
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Mensaje");
+                    }
+                
+                
             }
             catch (Exception ex)
             {
@@ -91,7 +110,7 @@ namespace app_contraseñas
                 if (ventanaEditar.ShowDialog() == DialogResult.OK)
                 {
                     
-                    ad.ActualizarContrasena(id, ventanaEditar.txtApp.Text, ventanaEditar.txtUsuario.Text, ventanaEditar.txtContraseña.Text);
+                    ad.ActualizarContrasena(id, ventanaEditar.txtApp.Text, ventanaEditar.txtUsuario.Text, ventanaEditar.txtContraseña.Text, DateTime.Now);
 
                     
                     ActualizarDataTable();
@@ -114,7 +133,7 @@ namespace app_contraseñas
 
         private void ActualizarDataTable()
         {
-            dataTable = ad.GetPasswords();
+            dataTable = ad.GetPasswords(this.usuario_id);
 
             
             dataGridView1.Columns.Clear();
@@ -134,5 +153,37 @@ namespace app_contraseñas
         {
            
         }
+
+        private void exportarCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("¿Estás seguro que deseas volver al menú?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                regresarAForm1 = true;
+                Form1 form1 = new Form1();
+                form1.Show();
+                this.Close();
+            }
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarUsuario mu = new ModificarUsuario();
+            if (mu.ShowDialog() == DialogResult.OK)
+            {
+                string nombre = mu.textBox1.Text;
+                string contraseña = mu.textBox2.Text;
+                ad.ActualizarUsuario(this.usuario_id, nombre, contraseña);
+            }
+        }
+       
+        
+        
     }
 }

@@ -27,27 +27,12 @@ namespace app_contraseñas
         {
 
         }
-        public string GenerarContraseña()
-        {
-            const string CaracteresPermitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_=+[{]}|;:',<.>/?";
-            const int LongitudContraseña = 16; // Longitud de la contraseña deseada
-            Random random = new Random();
-            StringBuilder contraseña = new StringBuilder();
-
-            // Generar la contraseña con caracteres aleatorios
-            while (contraseña.Length < LongitudContraseña)
-            {
-                int indiceCaracter = random.Next(CaracteresPermitidos.Length);
-                contraseña.Append(CaracteresPermitidos[indiceCaracter]);
-            }
-
-            return contraseña.ToString();
-        }
+        Administrador ad=new Administrador();   
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                string nuevaContraseña = GenerarContraseña();
+                string nuevaContraseña =ad.GenerarContraseña();
 
                 txtContraseña.Text = nuevaContraseña;
             }
