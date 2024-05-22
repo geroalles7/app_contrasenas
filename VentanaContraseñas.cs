@@ -45,6 +45,8 @@ namespace app_contraseñas
             this.SizeGripStyle = SizeGripStyle.Hide;
 
 
+           
+
         }
         private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -152,6 +154,7 @@ namespace app_contraseñas
         {
 
             ActualizarDataTable();
+            
         }
 
         private void ActualizarDataTable()
@@ -350,6 +353,48 @@ namespace app_contraseñas
                 }
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "contraseña")
+            {
+                    // Solicitar nombre y contraseña del usuario
+                    ValidarUsuario vu =new ValidarUsuario();
+                
+       
+                    if (vu.ShowDialog() == DialogResult.OK)
+                    {
+                        string usuario = vu.textBox1.Text;
+                        string contraseña = vu.textBox2.Text;
+
+                        Usuario usuarioActual = ad.GetUsuario(this.usuario_id); // Obtener el usuario actual
+
+                        if (usuarioActual != null && usuarioActual.Nombre == usuario && usuarioActual.Contraseña == contraseña)
+                        {
+                            // Desbloquear y mostrar la contraseña real
+                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = "Unlocked";
+                            dataGridView1.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Credenciales incorrectas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "contraseña" && e.Value != null)
+            {
+                if (!dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag?.ToString().Equals("Unlocked") ?? true)
+                {
+                    e.Value = new string('•', e.Value.ToString().Length);
+                }
+            }
+        }
+        
     }
 }
 

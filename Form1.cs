@@ -20,6 +20,7 @@ namespace app_contraseñas
             this.MaximizeBox = false;
             this.MinimizeBox = true; // Si deseas permitir minimizar, de lo contrario, configúralo como false
             this.SizeGripStyle = SizeGripStyle.Hide;
+            txtContrasena.PasswordChar = '●';
 
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -60,11 +61,23 @@ namespace app_contraseñas
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CrearUsuario cu=new CrearUsuario(); 
-            if(cu.ShowDialog()== DialogResult.OK) 
+            while(cu.ShowDialog() == DialogResult.OK) 
             {
                 string nombre = cu.textBox1.Text;
                 string contraseña = cu.textBox2.Text;
-                ad.AgregarUsuario(nombre, contraseña);
+                string contraseña2 = cu.txtContraseña2.Text;
+                if (contraseña == contraseña2)
+                {
+                    
+                    ad.AgregarUsuario(nombre, contraseña);
+                    break;
+                }
+                else
+                {
+                    
+                    MessageBox.Show("Las contraseñas no coinciden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
 
                
             }
@@ -72,7 +85,7 @@ namespace app_contraseñas
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            txtContrasena.PasswordChar = '●';
         }
     }
 }

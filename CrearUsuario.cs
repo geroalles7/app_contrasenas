@@ -20,11 +20,24 @@ namespace app_contraseñas
             this.MaximizeBox = false;
             this.MinimizeBox = true;
             this.SizeGripStyle = SizeGripStyle.Hide;
+            textBox2.PasswordChar = '●';
+            txtContraseña2.PasswordChar = '●';
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CrearUsuario_Load(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '●';
+            txtContraseña2.PasswordChar = '●';
         }
     }
 }
