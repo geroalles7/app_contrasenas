@@ -21,11 +21,21 @@ namespace app_contraseñas
             this.MinimizeBox = true;
             this.SizeGripStyle = SizeGripStyle.Hide;
 
+            textBox2.PasswordChar = '●';
+            textBox3.PasswordChar = '●';
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ModificarUsuario_Load(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '●';
+            textBox3.PasswordChar = '●';
         }
     }
 }
