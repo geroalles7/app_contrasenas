@@ -10,21 +10,12 @@ using System.Windows.Forms;
 
 namespace app_contraseñas
 {
-    public partial class ModificarUsuario : Form
+    public partial class ValidarUsuario : Form
     {
-        public ModificarUsuario()
+        public ValidarUsuario()
         {
             InitializeComponent();
-            //dejar ventana fija
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
-            this.SizeGripStyle = SizeGripStyle.Hide;
-
             textBox2.PasswordChar = '●';
-            textBox3.PasswordChar = '●';
-            
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,10 +23,9 @@ namespace app_contraseñas
 
         }
 
-        private void ModificarUsuario_Load(object sender, EventArgs e)
+        private void ValidarUsuario_Load(object sender, EventArgs e)
         {
             textBox2.PasswordChar = '●';
-            textBox3.PasswordChar = '●';
         }
     }
 }

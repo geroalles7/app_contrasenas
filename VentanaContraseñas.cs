@@ -44,6 +44,9 @@ namespace app_contraseñas
             this.MinimizeBox = true; 
             this.SizeGripStyle = SizeGripStyle.Hide;
 
+            this.chkShowPasswords.CheckedChanged += new System.EventHandler(this.chkShowPasswords_CheckedChanged);
+            this.Controls.Add(this.chkShowPasswords);
+
 
         }
         private void VentanaContraseñas_FormClosed(object sender, FormClosedEventArgs e)
@@ -152,6 +155,7 @@ namespace app_contraseñas
         {
 
             ActualizarDataTable();
+            
         }
 
         private void ActualizarDataTable()
@@ -186,7 +190,7 @@ namespace app_contraseñas
         {
 
             DialogResult result = MessageBox.Show("¿Estás seguro que deseas volver al menú?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if(result == DialogResult.Yes)
             {
                 regresarAForm1 = true;
                 Form1 form1 = new Form1();
@@ -202,12 +206,24 @@ namespace app_contraseñas
             mu.textBox1.Text = usuario.Nombre;
             mu.textBox2.Text = usuario.Contraseña;
 
-            if (mu.ShowDialog() == DialogResult.OK)
-            {
+           
 
+            while(mu.ShowDialog() == DialogResult.OK)
+            {
                 string nombre = mu.textBox1.Text;
-                string contraseña = mu.textBox2.Text;
-                ad.ActualizarUsuario(this.usuario_id, nombre, contraseña);
+                string nuevaContraseña = mu.textBox2.Text;
+                string nuevaContraseña2 = mu.textBox3.Text;
+                if (nuevaContraseña == nuevaContraseña2)
+                {
+                    ad.ActualizarUsuario(this.usuario_id, nombre, nuevaContraseña);
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show("Las contraseñas no coinciden");
+                }
+               
+               
             }
         }
 
@@ -350,6 +366,110 @@ namespace app_contraseñas
                 }
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "contraseña")
+            {
+                    // Solicitar nombre y contraseña del usuario
+                    ValidarUsuario vu =new ValidarUsuario();
+                
+       
+                    if (vu.ShowDialog() == DialogResult.OK)
+                    {
+                        string usuario = vu.textBox1.Text;
+                        string contraseña = vu.textBox2.Text;
+
+                        Usuario usuarioActual = ad.GetUsuario(this.usuario_id); // Obtener el usuario actual
+
+                        if (usuarioActual != null && usuarioActual.Nombre == usuario && usuarioActual.Contraseña == contraseña)
+                        {
+                            // Desbloquear y mostrar la contraseña real
+                            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = "Unlocked";
+                            dataGridView1.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Credenciales incorrectas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "contraseña" && e.Value != null)
+            {
+                if (!dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag?.ToString().Equals("Unlocked") ?? true)
+                {
+                    e.Value = new string('•', e.Value.ToString().Length);
+                }
+            }
+        }
+
+        private void inicioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private bool isUserValidated = false;
+        private int checkBoxPressCount = 0; // Contador de veces que se presiona el CheckBox
+        private const int MaxCheckBoxPressCount = 3;
+        private void chkShowPasswords_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPressCount >= MaxCheckBoxPressCount)
+            {
+                // If the CheckBox has been pressed the maximum number of times, disable it
+                chkShowPasswords.Enabled = false;
+                MessageBox.Show("Has alcanzado el límite de veces que puedes presionar el CheckBox.", "Límite alcanzado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!isUserValidated)
+            {
+                ValidarUsuario vu = new ValidarUsuario();
+                Usuario u = ad.GetUsuario(this.usuario_id);
+                while (vu.ShowDialog() == DialogResult.OK)
+                {
+                    if (vu.textBox1.Text == u.Nombre && vu.textBox2.Text == u.Contraseña)
+                    {
+                        isUserValidated = true;
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Credenciales incorrectas. Inténtalo de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+            if (isUserValidated)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (chkShowPasswords.Checked)
+                    {
+                        // Mostrar las contraseñas reales
+                        row.Cells["contraseña"].Tag = "Unlocked";
+                    }
+                    else
+                    {
+                        // Ocultar las contraseñas con puntos
+                        row.Cells["contraseña"].Tag = null;
+                    }
+                }
+
+                dataGridView1.Invalidate();
+                checkBoxPressCount++; // Incrementar el contador después de validar y cambiar el estado
+            }
+            else
+            {
+                // If validation failed, reset the checkbox to unchecked state
+                chkShowPasswords.Checked = false;
+            }
+
+        }
+       
     }
 }
 
